@@ -35,7 +35,7 @@ i = Native.MJS.v3 1 0 0
 j : Vec3
 j = Native.MJS.v3 0 1 0
 
-{-| The unit vector &kcirc; which points in the z direction: `v3 0 0 1` -}
+{-| The unit vector k&#0770; which points in the z direction: `v3 0 0 1` -}
 k : Vec3
 k = Native.MJS.v3 0 0 1
 
