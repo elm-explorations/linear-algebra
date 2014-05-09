@@ -36,8 +36,8 @@ data Mat4 = Mat4
 
 {-| Multiply a vector by a 4x4 matrix: m * v
 -}
-mulVec3 : Mat4 -> Vec3 -> Vec3
-mulVec3 = Native.MJS.v3mul4x4
+transform : Mat4 -> Vec3 -> Vec3
+transform = Native.MJS.v3mul4x4
 
 {-| A matrix with all 0s, except 1s on the diagonal.
 -}
