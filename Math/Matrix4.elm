@@ -13,7 +13,7 @@ existing matrix.
 
 # Operations
 
-@docs inverseOrthonormal, mul, mulAffine, mulVec3, transpose, makeBasis
+@docs inverseOrthonormal, mul, mulAffine, transpose, makeBasis, transform
 
 # Projections
 
