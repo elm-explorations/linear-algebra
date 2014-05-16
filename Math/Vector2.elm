@@ -94,8 +94,8 @@ distanceSquared = Native.Math.Vector2.distanceSquared
 normalize : Vec2 -> Vec2
 normalize = Native.Math.Vector2.normalize
 
-{-| Multiply the vector by a scalar: a * k -}
-scale : Vec2 -> Float -> Vec2
+{-| Multiply the vector by a scalar: s * v -}
+scale : Float -> Vec2 -> Vec2
 scale = Native.Math.Vector2.scale
 
 {-| The dot product of a and b -}

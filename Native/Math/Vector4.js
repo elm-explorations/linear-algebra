@@ -181,7 +181,7 @@ Elm.Native.Math.Vector4.make = function(elm) {
         return r;
     };
 
-    V4.scale = function V4_scale(a, k) {
+    V4.scale = function V4_scale(k, a) {
         var r = new MJS_FLOAT_ARRAY_TYPE(4);
         r[0] = a[0] * k;
         r[1] = a[1] * k;

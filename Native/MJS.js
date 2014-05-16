@@ -375,7 +375,7 @@ Elm.Native.MJS.make = function(elm) {
     /*
      * Function: V3.scale
      *
-     * Perform r = a * k.
+     * Perform r = k * a.
      *
      * Parameters:
      *
@@ -388,7 +388,7 @@ Elm.Native.MJS.make = function(elm) {
      *   If r is specified, returns r after performing the operation.
      *   Otherwise, returns a new 3-element vector with the result.
      */
-    V3.scale = function V3_scale(a, k, r) {
+    V3.scale = function V3_scale(k, a, r) {
         //MathUtils_assert(a.length == 3, "a.length == 3");
         //MathUtils_assert(r == undefined || r.length == 3, "r == undefined || r.length == 3");
 

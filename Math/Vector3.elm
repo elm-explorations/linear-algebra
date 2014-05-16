@@ -115,8 +115,8 @@ distanceSquared = Native.MJS.v3distanceSquared
 normalize : Vec3 -> Vec3
 normalize = Native.MJS.v3normalize
 
-{-| Multiply the vector by a scalar: a * k -}
-scale : Vec3 -> Float -> Vec3
+{-| Multiply the vector by a scalar: s * v -}
+scale : Float -> Vec3 -> Vec3
 scale = Native.MJS.v3scale
 
 {-| The dot product of a and b -}
