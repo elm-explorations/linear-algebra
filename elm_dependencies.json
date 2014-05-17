@@ -16,7 +16,7 @@
         "Native.Math.Vector4",
         "Native.MJS"
     ],
-    "elm-version": "0.12.1.3",
+    "elm-version": "0.12.2",
     "dependencies": {},
     "repository": "https://github.com/johnpmayer/elm-linear-algebra.git"
 }
