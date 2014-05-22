@@ -1,5 +1,5 @@
 {
-    "version": "0.1",
+    "version": "1.0",
     "summary": "A linear algebra library for fast vector and matrix math",
     "description": "This is a general purpose linear algebra library based on the MJS project. These libraries are needed for WebGL, but can be useful in any context that needs fixed sized vectors and matrices.",
     "license": "BSD3",
@@ -16,7 +16,7 @@
         "Native.Math.Vector4",
         "Native.MJS"
     ],
-    "elm-version": "0.12.2",
+    "elm-version": "0.12.3",
     "dependencies": {},
     "repository": "https://github.com/johnpmayer/elm-linear-algebra.git"
 }
