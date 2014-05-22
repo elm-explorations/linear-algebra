@@ -27,15 +27,15 @@ data Vec3 = Vec3
 vec3 : Float -> Float -> Float -> Vec3
 vec3 = Native.MJS.vec3
 
-{-| The unit vector &icirc; which points in the x direction: `v3 1 0 0` -}
+{-| The unit vector &icirc; which points in the x direction: `vec3 1 0 0` -}
 i : Vec3
 i = Native.MJS.vec3 1 0 0
 
-{-| The unit vector &jcirc; which points in the y direction: `v3 0 1 0` -}
+{-| The unit vector &jcirc; which points in the y direction: `vec3 0 1 0` -}
 j : Vec3
 j = Native.MJS.vec3 0 1 0
 
-{-| The unit vector k&#0770; which points in the z direction: `v3 0 0 1` -}
+{-| The unit vector k&#0770; which points in the z direction: `vec3 0 0 1` -}
 k : Vec3
 k = Native.MJS.vec3 0 0 1
 
