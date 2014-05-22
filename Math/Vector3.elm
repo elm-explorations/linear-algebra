@@ -3,7 +3,7 @@ module Math.Vector3 where
 towards 3D graphics and use with `Graphics.WebGL`. All vectors are immutable.
 
 # Create
-@docs v3, i, j, k
+@docs vec3, i, j, k
 
 # Get and Set
 The set functions create a new copy of the vector, updating a single field.
@@ -24,20 +24,20 @@ data Vec3 = Vec3
 
 {-| Creates a new 3-element vector with the given values.
 -}
-v3 : Float -> Float -> Float -> Vec3
-v3 = Native.MJS.v3
+vec3 : Float -> Float -> Float -> Vec3
+vec3 = Native.MJS.vec3
 
 {-| The unit vector &icirc; which points in the x direction: `v3 1 0 0` -}
 i : Vec3
-i = Native.MJS.v3 1 0 0
+i = Native.MJS.vec3 1 0 0
 
 {-| The unit vector &jcirc; which points in the y direction: `v3 0 1 0` -}
 j : Vec3
-j = Native.MJS.v3 0 1 0
+j = Native.MJS.vec3 0 1 0
 
 {-| The unit vector k&#0770; which points in the z direction: `v3 0 0 1` -}
 k : Vec3
-k = Native.MJS.v3 0 0 1
+k = Native.MJS.vec3 0 0 1
 
 {-| Extract the x component of a vector. -}
 getX : Vec3 -> Float

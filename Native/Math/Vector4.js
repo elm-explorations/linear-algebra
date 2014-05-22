@@ -195,7 +195,7 @@ Elm.Native.Math.Vector4.make = function(elm) {
     };
 
     return { 
-        v4: F4(V4.$),
+        vec4: F4(V4.$),
         getX: V4.getX,
         getY: V4.getY,
         getZ: V4.getZ,

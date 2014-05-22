@@ -3,7 +3,7 @@ module Math.Vector2 where
 towards 3D graphics and use with `Graphics.WebGL`. All vectors are immutable.
 
 # Create
-@docs v2
+@docs vec2
 
 # Get and Set
 The set functions create a new copy of the vector, updating a single field.
@@ -23,8 +23,8 @@ import Native.Math.Vector2
 data Vec2 = Vec2
 
 {-| Creates a new 2-element vector with the given values. -}
-v2 : Float -> Float -> Vec2
-v2 = Native.Math.Vector2.v2
+vec2 : Float -> Float -> Vec2
+vec2 = Native.Math.Vector2.vec2
 
 {-| Extract the x component of a vector. -}
 getX : Vec2 -> Float

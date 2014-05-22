@@ -161,7 +161,7 @@ Elm.Native.Math.Vector2.make = function(elm) {
     };
 
     return { 
-        v2: F2(V2.$),
+        vec2: F2(V2.$),
         getX: V2.getX,
         getY: V2.getY,
         setX: F2(V2.setX),

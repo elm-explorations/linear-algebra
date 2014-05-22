@@ -1735,7 +1735,7 @@ Elm.Native.MJS.make = function(elm) {
     };
 
     return { 
-        v3: F3(V3.$),
+        vec3: F3(V3.$),
         v3getX: V3.getX,
         v3getY: V3.getY,
         v3getZ: V3.getZ,
