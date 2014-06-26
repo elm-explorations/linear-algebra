@@ -135,7 +135,7 @@ Elm.Native.Math.Vector2.make = function(elm) {
         return Math.sqrt(dx * dx + dy * dy);
     };
 
-    V2.distanceSquared = function V2_distanceSquared(a) {
+    V2.distanceSquared = function V2_distanceSquared(a, b) {
         var dx = a[0] - b[0];
         var dy = a[1] - b[1];
         return dx * dx + dy * dy;

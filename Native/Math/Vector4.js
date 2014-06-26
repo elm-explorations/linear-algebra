@@ -163,7 +163,7 @@ Elm.Native.Math.Vector4.make = function(elm) {
         return Math.sqrt(dx * dx + dy * dy + dz * dz + dw * dw);
     };
 
-    V4.distanceSquared = function V4_distanceSquared(a) {
+    V4.distanceSquared = function V4_distanceSquared(a, b) {
         var dx = a[0] - b[0];
         var dy = a[1] - b[1];
         var dz = a[2] - b[2];
