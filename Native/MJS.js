@@ -1786,4 +1786,4 @@ Elm.Native.MJS.make = function(elm) {
         m4x4makeBasis: F3(M4x4.makeBasis)
     };
 
-}
+};
