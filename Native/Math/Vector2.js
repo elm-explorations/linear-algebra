@@ -183,4 +183,4 @@ Elm.Native.Math.Vector2.make = function(elm) {
         dot: F2(V2.dot)
     };
 
-}
+};
