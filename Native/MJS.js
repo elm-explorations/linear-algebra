@@ -144,13 +144,13 @@ Elm.Native.MJS.make = function(elm) {
         return a[2];
     }
     V3.setX = function V3_setX(x, a) {
-        return new MJS_FLOAT_ARRAY_TYPE(x, a[1], a[2]);
+        return new MJS_FLOAT_ARRAY_TYPE([x, a[1], a[2]]);
     }
     V3.setY = function V3_setY(y, a) {
-        return new MJS_FLOAT_ARRAY_TYPE(a[0], y, a[2]);
+        return new MJS_FLOAT_ARRAY_TYPE([a[0], y, a[2]]);
     }
     V3.setZ = function V3_setZ(z, a) {
-        return new MJS_FLOAT_ARRAY_TYPE(a[0], a[1], z);
+        return new MJS_FLOAT_ARRAY_TYPE([a[0], a[1], z]);
     }
 
     V3.toTuple3 = function V3_toTuple3(a) {
