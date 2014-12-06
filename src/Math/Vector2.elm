@@ -20,7 +20,7 @@ toTuple, fromTuple, toRecord, fromRecord
 
 import Native.Math.Vector2
 
-data Vec2 = Vec2
+type Vec2 = Vec2
 
 {-| Creates a new 2-element vector with the given values. -}
 vec2 : Float -> Float -> Vec2

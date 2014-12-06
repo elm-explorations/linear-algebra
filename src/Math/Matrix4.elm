@@ -32,7 +32,7 @@ existing matrix.
 import Native.MJS
 import Math.Vector3 (Vec3)
 
-data Mat4 = Mat4
+type Mat4 = Mat4
 
 {-| Multiply a vector by a 4x4 matrix: m * v
 -}

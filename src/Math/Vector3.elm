@@ -20,7 +20,7 @@ The set functions create a new copy of the vector, updating a single field.
 
 import Native.MJS
 
-data Vec3 = Vec3
+type Vec3 = Vec3
 
 {-| Creates a new 3-element vector with the given values.
 -}

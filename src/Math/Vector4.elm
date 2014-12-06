@@ -20,7 +20,7 @@ toTuple, fromTuple, toRecord, fromRecord
 
 import Native.Math.Vector4
 
-data Vec4 = Vec4
+type Vec4 = Vec4
 
 {-| Creates a new 4-element vector with the given x, y, z, and w values. -}
 vec4 : Float -> Float -> Float -> Float -> Vec4

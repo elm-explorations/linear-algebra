@@ -1,0 +1,20 @@
+{
+    "version": "1.0.2",
+    "summary": "A linear algebra library for fast vector and matrix math",
+    "repository": "https://github.com/johnpmayer/elm-linear-algebra.git",
+    "license": "BSD3",
+    "source-directories": [
+        "src"
+    ],
+    "exposed-modules":
+    [
+        "Math.Vector2",
+        "Math.Vector3",
+        "Math.Vector4",
+        "Math.Matrix4"
+    ],
+    "native-modules": true,
+    "dependencies": {
+        "elm-lang/core": "1.0.0 <= v < 2.0.0"
+    }
+}
