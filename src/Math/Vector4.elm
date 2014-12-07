@@ -15,7 +15,7 @@ The set functions create a new copy of the vector, updating a single field.
       length, lengthSquared, distance, distanceSquared
 
 # Conversions
-toTuple, fromTuple, toRecord, fromRecord
+@docs toTuple, fromTuple, toRecord, fromRecord
 -}
 
 import Native.Math.Vector4
