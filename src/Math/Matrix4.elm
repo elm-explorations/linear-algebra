@@ -88,7 +88,7 @@ Parameters:
  * znear - the near z distance of the frustum
  * zfar - the far z distance of the frustum
 -}
-makeOrtho : Float -> Float -> Float -> Float -> Float -> Float -> Float -> Mat4
+makeOrtho : Float -> Float -> Float -> Float -> Float -> Float -> Mat4
 makeOrtho = Native.MJS.m4x4makeOrtho
 
 {-| Creates a matrix for a 2D orthogonal frustum projection with the given
