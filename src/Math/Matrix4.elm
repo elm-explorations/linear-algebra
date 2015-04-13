@@ -30,7 +30,7 @@ existing matrix.
 -}
 
 import Native.MJS
-import Math.Vector3 (Vec3)
+import Math.Vector3 exposing (Vec3)
 
 type Mat4 = Mat4
 
