@@ -3,12 +3,12 @@ module Math.Vector4 where
 towards 3D graphics and use with `Graphics.WebGL`. All vectors are immutable.
 
 # Create
-@docs vec4
+@docs Vec4, vec4
 
 # Get and Set
 The set functions create a new copy of the vector, updating a single field.
 
-@docs getX, getY, setX, setY
+@docs getX, getY, getZ, getW, setX, setY, setZ, setW
 
 # Operations
 @docs add, sub, negate, scale, dot, normalize, direction,
@@ -20,6 +20,7 @@ The set functions create a new copy of the vector, updating a single field.
 
 import Native.Math.Vector4
 
+{-| Four dimensional vector type -}
 type Vec4 = Vec4
 
 {-| Creates a new 4-element vector with the given x, y, z, and w values. -}

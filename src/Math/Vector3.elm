@@ -3,7 +3,7 @@ module Math.Vector3 where
 towards 3D graphics and use with `Graphics.WebGL`. All vectors are immutable.
 
 # Create
-@docs vec3, i, j, k
+@docs Vec3, vec3, i, j, k
 
 # Get and Set
 The set functions create a new copy of the vector, updating a single field.
@@ -20,6 +20,7 @@ The set functions create a new copy of the vector, updating a single field.
 
 import Native.MJS
 
+{-| Three dimensional vector type -}
 type Vec3 = Vec3
 
 {-| Creates a new 3-element vector with the given values.

@@ -9,7 +9,7 @@ existing matrix.
 
 # Create
 
-@docs identity
+@docs Mat4, identity
 
 # Operations
 
@@ -32,6 +32,7 @@ existing matrix.
 import Native.MJS
 import Math.Vector3 exposing (Vec3)
 
+{-| 4x4 matrix type -}
 type Mat4 = Mat4
 
 {-| Multiply a vector by a 4x4 matrix: m * v
