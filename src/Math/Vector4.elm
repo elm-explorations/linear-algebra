@@ -87,7 +87,7 @@ sub = Native.Math.Vector4.sub
 negate : Vec4 -> Vec4
 negate = Native.Math.Vector4.neg
 
-{-| The normalized direction from a to b: (a - b) / |a - b| -}
+{-| The normalized direction from b to a: (a - b) / |a - b| -}
 direction : Vec4 -> Vec4 -> Vec4
 direction = Native.Math.Vector4.direction
 
