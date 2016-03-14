@@ -17,7 +17,7 @@ existing matrix.
 
 # Projections
 
-@docs makeFrustrum, makePerspective, makeOrtho, makeOrtho2D, makeLookAt
+@docs makeFrustum, makePerspective, makeOrtho, makeOrtho2D, makeLookAt
 
 # Apply Transformations
 
@@ -62,8 +62,8 @@ Parameters:
  * znear - the near z distance of the frustum 
  * zfar - the far z distance of the frustum
 -}
-makeFrustrum : Float -> Float -> Float -> Float -> Float -> Float -> Float -> Mat4
-makeFrustrum = Native.MJS.m4x4makeFrustrum
+makeFrustum : Float -> Float -> Float -> Float -> Float -> Float -> Mat4
+makeFrustum = Native.MJS.m4x4makeFrustum
 
 {-| Creates a matrix for a perspective projection with the given parameters.
 
