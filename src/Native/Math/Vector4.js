@@ -32,14 +32,7 @@
  * Edited to work with the Elm Programming Language
  */
 
-Elm.Native.Math = Elm.Native.Math || {};
-Elm.Native.Math.Vector4 = {};
-Elm.Native.Math.Vector4.make = function(elm) {
-
-    elm.Native = elm.Native || {};
-    elm.Native.Math = elm.Native.Math || {};
-    elm.Native.Math.Vector4 = elm.Native.Math.Vector4 || {};
-    if (elm.Native.Math.Vector4.values) return elm.Native.Math.Vector4.values;
+var _elm_community$elm_linear_algebra$Native_Math_Vector4 = function() {
 
     var MJS_FLOAT_ARRAY_TYPE = Float32Array;
 
@@ -194,7 +187,7 @@ Elm.Native.Math.Vector4.make = function(elm) {
         return a[0] * b[0] + a[1] * b[1] + a[2] * b[2] + a[3] * b[3];
     };
 
-    return { 
+    return {
         vec4: F4(V4.$),
         getX: V4.getX,
         getY: V4.getY,
@@ -221,4 +214,4 @@ Elm.Native.Math.Vector4.make = function(elm) {
         dot: F2(V4.dot)
     };
 
-};
+}();

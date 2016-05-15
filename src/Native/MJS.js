@@ -33,12 +33,8 @@
  * Edited to work with the Elm Programming Language
  */
 
-Elm.Native.MJS = {};
-Elm.Native.MJS.make = function(elm) {
+var _elm_community$elm_linear_algebra$Native_MJS = function() {
 
-    elm.Native = elm.Native || {};
-    elm.Native.MJS = elm.Native.MJS || {};
-    if (elm.Native.MJS.values) return elm.Native.MJS.values;
 
     /*
      * Constant: MJS_VERSION
@@ -1710,7 +1706,7 @@ Elm.Native.MJS.make = function(elm) {
     };
 
     M4x4.makeBasis = function M4x4_makeBasis(vx,vy,vz) {
-        
+
         var r = new MJS_FLOAT_ARRAY_TYPE(16);
 
         r[0] = vx[0];
@@ -1734,7 +1730,7 @@ Elm.Native.MJS.make = function(elm) {
 
     };
 
-    return { 
+    return {
         vec3: F3(V3.$),
         v3getX: V3.getX,
         v3getY: V3.getY,
@@ -1786,4 +1782,4 @@ Elm.Native.MJS.make = function(elm) {
         m4x4makeBasis: F3(M4x4.makeBasis)
     };
 
-};
+}();

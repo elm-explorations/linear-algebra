@@ -1,4 +1,4 @@
-module Math.Vector4 where
+module Math.Vector4 exposing (..)
 {-| A high performance linear algebra library using native JS arrays. Geared
 towards 3D graphics and use with `Graphics.WebGL`. All vectors are immutable.
 
