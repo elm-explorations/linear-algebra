@@ -1,4 +1,4 @@
-# Contributing to elm-community/elm-linear-algebra
+# Contributing to elm-community/linear-algebra
 
 This repository is kept for maintenance and does not accept most feature requests. In particular, 
 [#5](https://github.com/elm-community/elm-linear-algebra/issues/5) requires that all

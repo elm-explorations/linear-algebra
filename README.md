@@ -2,7 +2,7 @@
 
 A library for fast vector and matrix math. See the full docs [here][docs].
 
-[docs]: http://package.elm-lang.org/packages/elm-community/elm-linear-algebra/latest/
+[docs]: http://package.elm-lang.org/packages/elm-community/linear-algebra/latest/
 
 This is needed for 3D rendering with [WebGL in Elm][webgl], but is useful for
 anything where fast linear algebra is needed.
