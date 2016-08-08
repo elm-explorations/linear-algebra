@@ -55,10 +55,10 @@ var _elm_community$elm_linear_algebra$Native_Math_Vector2 = function() {
         return a[1];
     }
     V2.setX = function V2_setX(x, a) {
-        return new MJS_FLOAT_ARRAY_TYPE(x, a[1]);
+        return new MJS_FLOAT_ARRAY_TYPE([x, a[1]]);
     }
     V2.setY = function V2_setY(y, a) {
-        return new MJS_FLOAT_ARRAY_TYPE(a[0], y);
+        return new MJS_FLOAT_ARRAY_TYPE([a[0], y]);
     }
 
     V2.toTuple = function V2_toTuple(a) {
