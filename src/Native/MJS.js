@@ -33,7 +33,7 @@
  * Edited to work with the Elm Programming Language
  */
 
-var _elm_community$elm_linear_algebra$Native_MJS = function() {
+var _elm_community$linear_algebra$Native_MJS = function() {
 
 
     /*

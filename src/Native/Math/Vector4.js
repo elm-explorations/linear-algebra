@@ -32,7 +32,7 @@
  * Edited to work with the Elm Programming Language
  */
 
-var _elm_community$elm_linear_algebra$Native_Math_Vector4 = function() {
+var _elm_community$linear_algebra$Native_Math_Vector4 = function() {
 
     var MJS_FLOAT_ARRAY_TYPE = Float32Array;
 
