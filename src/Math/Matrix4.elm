@@ -13,7 +13,7 @@ existing matrix.
 
 # Operations
 
-@docs inverseOrthonormal, mul, mulAffine, transpose, makeBasis, transform
+@docs inverse, inverseOrthonormal, mul, mulAffine, transpose, makeBasis, transform
 
 # Projections
 
@@ -45,8 +45,15 @@ transform = Native.MJS.v3mul4x4
 identity : Mat4
 identity = Native.MJS.m4x4identity
 
-{-| Computes the inverse of the given matrix m, assuming that the matrix is
-orthonormal.
+{-| Computes the inverse of any matrix. This is somewhat computationally
+intensive. If the matrix is not invertible, `Nothing` is returned.
+-}
+inverse : Mat4 -> Maybe Mat4
+inverse = Native.MJS.m4x4inverse
+
+{-| Computes the inverse of the given matrix, assuming that the matrix is
+orthonormal. This algorithm is more efficient than general matrix inversion, and
+has no possibility of failing.
 -}
 inverseOrthonormal : Mat4 -> Mat4
 inverseOrthonormal = Native.MJS.m4x4inverseOrthonormal

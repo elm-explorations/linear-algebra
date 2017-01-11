@@ -586,6 +586,74 @@ var _elm_community$linear_algebra$Native_MJS = function() {
     };
 
     /*
+     * Function: M4x4.inverse
+     *
+     * Computes the inverse of the given matrix m.
+     *
+     * Parameters:
+     *
+     *   m - the matrix
+     *   r - optional 4x4 matrix to store the result in
+     *
+     * Returns:
+     *
+     *   If r is specified, returns r after performing the operation.
+     *   Otherwise, returns a new 4x4 matrix with the result.
+     */
+    M4x4.inverse = function M4x4_inverse(m, r) {
+        if (r == undefined) {
+            r = new MJS_FLOAT_ARRAY_TYPE(16);
+        }
+
+        r[0] = m[5] * m[10] * m[15] - m[5] * m[11] * m[14] - m[9] * m[6] * m[15] +
+            m[9] * m[7] * m[14] + m[13] * m[6] * m[11] - m[13] * m[7] * m[10];
+        r[4] = -m[4] * m[10] * m[15] + m[4] * m[11] * m[14] + m[8] * m[6] * m[15] -
+            m[8] * m[7] * m[14] - m[12] * m[6] * m[11] + m[12] * m[7] * m[10];
+        r[8] = m[4] * m[9] * m[15] - m[4] * m[11] * m[13] - m[8] * m[5] * m[15] +
+            m[8] * m[7] * m[13] + m[12] * m[5] * m[11] - m[12] * m[7] * m[9];
+        r[12] = -m[4] * m[9] * m[14] + m[4] * m[10] * m[13] + m[8] * m[5] * m[14] -
+            m[8] * m[6] * m[13] - m[12] * m[5] * m[10] + m[12] * m[6] * m[9];
+        r[1] = -m[1] * m[10] * m[15] + m[1] * m[11] * m[14] + m[9] * m[2] * m[15] -
+            m[9] * m[3] * m[14] - m[13] * m[2] * m[11] + m[13] * m[3] * m[10];
+        r[5] = m[0] * m[10] * m[15] - m[0] * m[11] * m[14] - m[8] * m[2] * m[15] +
+            m[8] * m[3] * m[14] + m[12] * m[2] * m[11] - m[12] * m[3] * m[10];
+        r[9] = -m[0] * m[9] * m[15] + m[0] * m[11] * m[13] + m[8] * m[1] * m[15] -
+            m[8] * m[3] * m[13] - m[12] * m[1] * m[11] + m[12] * m[3] * m[9];
+        r[13] = m[0] * m[9] * m[14] - m[0] * m[10] * m[13] - m[8] * m[1] * m[14] +
+            m[8] * m[2] * m[13] + m[12] * m[1] * m[10] - m[12] * m[2] * m[9];
+        r[2] = m[1] * m[6] * m[15] - m[1] * m[7] * m[14] - m[5] * m[2] * m[15] +
+            m[5] * m[3] * m[14] + m[13] * m[2] * m[7] - m[13] * m[3] * m[6];
+        r[6] = -m[0] * m[6] * m[15] + m[0] * m[7] * m[14] + m[4] * m[2] * m[15] -
+            m[4] * m[3] * m[14] - m[12] * m[2] * m[7] + m[12] * m[3] * m[6];
+        r[10] = m[0] * m[5] * m[15] - m[0] * m[7] * m[13] - m[4] * m[1] * m[15] +
+            m[4] * m[3] * m[13] + m[12] * m[1] * m[7] - m[12] * m[3] * m[5];
+        r[14] = -m[0] * m[5] * m[14] + m[0] * m[6] * m[13] + m[4] * m[1] * m[14] -
+            m[4] * m[2] * m[13] - m[12] * m[1] * m[6] + m[12] * m[2] * m[5];
+        r[3] = -m[1] * m[6] * m[11] + m[1] * m[7] * m[10] + m[5] * m[2] * m[11] -
+            m[5] * m[3] * m[10] - m[9] * m[2] * m[7] + m[9] * m[3] * m[6];
+        r[7] = m[0] * m[6] * m[11] - m[0] * m[7] * m[10] - m[4] * m[2] * m[11] +
+            m[4] * m[3] * m[10] + m[8] * m[2] * m[7] - m[8] * m[3] * m[6];
+        r[11] = -m[0] * m[5] * m[11] + m[0] * m[7] * m[9] + m[4] * m[1] * m[11] -
+            m[4] * m[3] * m[9] - m[8] * m[1] * m[7] + m[8] * m[3] * m[5];
+        r[15] = m[0] * m[5] * m[10] - m[0] * m[6] * m[9] - m[4] * m[1] * m[10] +
+            m[4] * m[2] * m[9] + m[8] * m[1] * m[6] - m[8] * m[2] * m[5];
+
+        var det = m[0] * r[0] + m[1] * r[4] + m[2] * r[8] + m[3] * r[12];
+
+        if (det === 0) {
+            return _elm_lang$core$Maybe$Nothing;
+        }
+
+        det = 1.0 / det;
+
+        for (var i = 0; i < 16; i = i + 1) {
+            r[i] = r[i] * det;
+        }
+
+        return _elm_lang$core$Maybe$Just(r);
+    };
+
+    /*
      * Function: M4x4.inverseOrthonormal
      *
      * Computes the inverse of the given matrix m, assuming that
@@ -1757,6 +1825,7 @@ var _elm_community$linear_algebra$Native_MJS = function() {
         v3mul4x4: F2(V3.mul4x4),
         m4x4identity: M4x4.identity,
         m4x4topLeft3x3: M4x4.topLeft3x3,
+        m4x4inverse: M4x4.inverse,
         m4x4inverseOrthonormal: M4x4.inverseOrthonormal,
         m4x4inverseTo3x3: M4x4.inverseTo3x3,
         m4x4makeFrustum: F6(M4x4.makeFrustum),
