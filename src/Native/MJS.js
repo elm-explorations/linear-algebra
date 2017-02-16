@@ -559,6 +559,29 @@ var _elm_community$linear_algebra$Native_MJS = function() {
     M4x4.identity = M4x4.I;
 
     /*
+     * Function: M4x4.fromList
+     *
+     * Creates a new 4x4 matrix with the given values.
+     *
+     * Parameters:
+     *
+     *   list - A list of the 16 elements of the new matrix.
+     *
+     * Returns:
+     *
+     * Just a new matrix filled with the given argument values.
+     * Nothing, if the length of the list is not exactly 16.
+     */
+    M4x4.fromList = function(list) {
+        var m = _elm_lang$core$Native_List.toArray(list);
+        if (m.length === 16) {
+            return _elm_lang$core$Maybe$Just(M4x4.$(m[0], m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8], m[9], m[10], m[11], m[12], m[13], m[14], m[15]));
+        } else {
+            return _elm_lang$core$Maybe$Nothing;
+        }
+    }
+
+    /*
      * Function: M4x4.topLeft3x3
      *
      * Return the top left 3x3 matrix from the given 4x4 matrix m.
@@ -1823,6 +1846,7 @@ var _elm_community$linear_algebra$Native_MJS = function() {
         v3dot: F2(V3.dot),
         v3cross: F2(V3.cross),
         v3mul4x4: F2(V3.mul4x4),
+        m4x4fromList: M4x4.fromList,
         m4x4identity: M4x4.identity,
         m4x4topLeft3x3: M4x4.topLeft3x3,
         m4x4inverse: M4x4.inverse,
