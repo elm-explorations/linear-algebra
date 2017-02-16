@@ -1,5 +1,5 @@
 {
-    "version": "1.1.0",
+    "version": "1.2.0",
     "summary": "A linear algebra library for fast vector and matrix math",
     "repository": "https://github.com/elm-community/linear-algebra.git",
     "license": "BSD3",
