@@ -9,7 +9,7 @@ existing matrix.
 
 # Create
 
-@docs Mat4, identity
+@docs Mat4, identity, makeFromList
 
 # Operations
 
@@ -202,3 +202,9 @@ transpose = Native.MJS.m4x4transpose
 -}
 makeBasis : Vec3 -> Vec3 -> Vec3 -> Mat4
 makeBasis = Native.MJS.m4x4makeBasis
+
+{-| Creates a matrix from a list of elements. Returns Nothing if the length of
+the list is not exactly 16 (4x4).
+-}
+makeFromList : List Float -> Maybe Mat4
+makeFromList = Native.MJS.m4x4fromList

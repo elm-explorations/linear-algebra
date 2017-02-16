@@ -78,6 +78,15 @@ suite =
                                     |> M4.scale3 (1 / 195) (1 / 195) (1 / 195)
                                     |> Just
                                 )
+                , test "makeFromList should be able create identity matrix" <|
+                    \_ ->
+                        M4.makeFromList ([ 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 ]) |> Expect.equal (Just M4.identity)
+                , test "makeFromList should return Nothing for short list of elements" <|
+                    \_ ->
+                        M4.makeFromList ([]) |> Expect.equal Nothing
+                , test "makeFromList should return Nothing for too long list of elements" <|
+                    \_ ->
+                        M4.makeFromList ([ 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1 ]) |> Expect.equal Nothing
                 ]
             ]
         ]
