@@ -65,8 +65,8 @@ var _elm_community$linear_algebra$Native_MJS = function() {
      * will be of this type.
      */
     //MJS_FLOAT_ARRAY_TYPE = WebGLFloatArray;
-    var MJS_FLOAT_ARRAY_TYPE = Float32Array;
-    //MJS_FLOAT_ARRAY_TYPE = Float64Array;
+    //MJS_FLOAT_ARRAY_TYPE = Float32Array;
+    var MJS_FLOAT_ARRAY_TYPE = Float64Array;
     //MJS_FLOAT_ARRAY_TYPE = Array;
 
     /*
