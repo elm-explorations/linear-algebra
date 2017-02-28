@@ -32,31 +32,43 @@ existing matrix.
 import Native.MJS
 import Math.Vector3 exposing (Vec3)
 
-{-| 4x4 matrix type -}
-type Mat4 = Mat4
+
+{-| 4x4 matrix type
+-}
+type Mat4
+    = Mat4
+
 
 {-| Multiply a vector by a 4x4 matrix: m * v
 -}
 transform : Mat4 -> Vec3 -> Vec3
-transform = Native.MJS.v3mul4x4
+transform =
+    Native.MJS.v3mul4x4
+
 
 {-| A matrix with all 0s, except 1s on the diagonal.
 -}
 identity : Mat4
-identity = Native.MJS.m4x4identity
+identity =
+    Native.MJS.m4x4identity
+
 
 {-| Computes the inverse of any matrix. This is somewhat computationally
 intensive. If the matrix is not invertible, `Nothing` is returned.
 -}
 inverse : Mat4 -> Maybe Mat4
-inverse = Native.MJS.m4x4inverse
+inverse =
+    Native.MJS.m4x4inverse
+
 
 {-| Computes the inverse of the given matrix, assuming that the matrix is
 orthonormal. This algorithm is more efficient than general matrix inversion, and
 has no possibility of failing.
 -}
 inverseOrthonormal : Mat4 -> Mat4
-inverseOrthonormal = Native.MJS.m4x4inverseOrthonormal
+inverseOrthonormal =
+    Native.MJS.m4x4inverseOrthonormal
+
 
 {-| Creates a matrix for a projection frustum with the given parameters.
 
@@ -70,7 +82,9 @@ Parameters:
  * zfar - the far z distance of the frustum
 -}
 makeFrustum : Float -> Float -> Float -> Float -> Float -> Float -> Mat4
-makeFrustum = Native.MJS.m4x4makeFrustum
+makeFrustum =
+    Native.MJS.m4x4makeFrustum
+
 
 {-| Creates a matrix for a perspective projection with the given parameters.
 
@@ -82,7 +96,9 @@ Parameters:
  * zfar - the far z distance of the projection
 -}
 makePerspective : Float -> Float -> Float -> Float -> Mat4
-makePerspective = Native.MJS.m4x4makePerspective
+makePerspective =
+    Native.MJS.m4x4makePerspective
+
 
 {-|
 Creates a matrix for an orthogonal frustum projection with the given parameters.
@@ -97,7 +113,9 @@ Parameters:
  * zfar - the far z distance of the frustum
 -}
 makeOrtho : Float -> Float -> Float -> Float -> Float -> Float -> Mat4
-makeOrtho = Native.MJS.m4x4makeOrtho
+makeOrtho =
+    Native.MJS.m4x4makeOrtho
+
 
 {-| Creates a matrix for a 2D orthogonal frustum projection with the given
 parameters. `znear` and `zfar` are assumed to be -1 and 1, respectively.
@@ -110,75 +128,101 @@ Parameters:
  * top - the top coordinate of the frustum
 -}
 makeOrtho2D : Float -> Float -> Float -> Float -> Mat4
-makeOrtho2D = Native.MJS.m4x4makeOrtho2D
+makeOrtho2D =
+    Native.MJS.m4x4makeOrtho2D
+
 
 {-| Matrix multiplcation: a * b
 -}
 mul : Mat4 -> Mat4 -> Mat4
-mul = Native.MJS.m4x4mul
+mul =
+    Native.MJS.m4x4mul
+
 
 {-| Matrix multiplication, assuming a and b are affine: a * b
 -}
 mulAffine : Mat4 -> Mat4 -> Mat4
-mulAffine = Native.MJS.m4x4mulAffine
+mulAffine =
+    Native.MJS.m4x4mulAffine
+
 
 {-| Creates a transformation matrix for rotation in radians about the
 3-element vector axis.
 -}
 makeRotate : Float -> Vec3 -> Mat4
-makeRotate = Native.MJS.m4x4makeRotate
+makeRotate =
+    Native.MJS.m4x4makeRotate
+
 
 {-| Concatenates a rotation in radians about an axis to the given matrix.
 -}
 rotate : Float -> Vec3 -> Mat4 -> Mat4
-rotate = Native.MJS.m4x4rotate
+rotate =
+    Native.MJS.m4x4rotate
+
 
 {-| Creates a transformation matrix for scaling by 3 scalar values, one for
 each of the x, y, and z directions.
 -}
 makeScale3 : Float -> Float -> Float -> Mat4
-makeScale3 = Native.MJS.m4x4makeScale3
+makeScale3 =
+    Native.MJS.m4x4makeScale3
+
 
 {-| Creates a transformation matrix for scaling each of the x, y, and z axes by
 the amount given in the corresponding element of the 3-element vector.
 -}
 makeScale : Vec3 -> Mat4
-makeScale = Native.MJS.m4x4makeScale
+makeScale =
+    Native.MJS.m4x4makeScale
+
 
 {-| Concatenates a scaling to the given matrix.
 -}
 scale3 : Float -> Float -> Float -> Mat4 -> Mat4
-scale3 = Native.MJS.m4x4scale3
+scale3 =
+    Native.MJS.m4x4scale3
+
 
 {-| Concatenates a scaling to the given matrix.
 -}
 scale : Vec3 -> Mat4 -> Mat4
-scale = Native.MJS.m4x4scale
+scale =
+    Native.MJS.m4x4scale
+
 
 {-|
 Creates a transformation matrix for translating by 3 scalar values, one for
 each of the x, y, and z directions.
 -}
 makeTranslate3 : Float -> Float -> Float -> Mat4
-makeTranslate3 = Native.MJS.m4x4makeTranslate3
+makeTranslate3 =
+    Native.MJS.m4x4makeTranslate3
+
 
 {-| Creates a transformation matrix for translating each of the x, y, and z
 axes by the amount given in the corresponding element of the 3-element vector.
 -}
 makeTranslate : Vec3 -> Mat4
-makeTranslate = Native.MJS.m4x4makeTranslate
+makeTranslate =
+    Native.MJS.m4x4makeTranslate
+
 
 {-|
 Concatenates a translation to the given matrix.
 -}
 translate3 : Float -> Float -> Float -> Mat4 -> Mat4
-translate3 = Native.MJS.m4x4translate3
+translate3 =
+    Native.MJS.m4x4translate3
+
 
 {-|
 Concatenates a translation to the given matrix.
 -}
 translate : Vec3 -> Mat4 -> Mat4
-translate = Native.MJS.m4x4translate
+translate =
+    Native.MJS.m4x4translate
+
 
 {-|
 Creates a transformation matrix for a camera.
@@ -190,21 +234,28 @@ Parameters:
  * up - The "up" direction according to the camera
 -}
 makeLookAt : Vec3 -> Vec3 -> Vec3 -> Mat4
-makeLookAt = Native.MJS.m4x4makeLookAt
+makeLookAt =
+    Native.MJS.m4x4makeLookAt
+
 
 {-| "Flip" the matrix across the diagonal by swapping row index and column
 index.
 -}
 transpose : Mat4 -> Mat4
-transpose = Native.MJS.m4x4transpose
+transpose =
+    Native.MJS.m4x4transpose
+
 
 {-| Creates a transform from a basis consisting of 3 linearly independent vectors.
 -}
 makeBasis : Vec3 -> Vec3 -> Vec3 -> Mat4
-makeBasis = Native.MJS.m4x4makeBasis
+makeBasis =
+    Native.MJS.m4x4makeBasis
+
 
 {-| Creates a matrix from a list of elements. Returns Nothing if the length of
 the list is not exactly 16 (4x4).
 -}
 makeFromList : List Float -> Maybe Mat4
-makeFromList = Native.MJS.m4x4fromList
+makeFromList =
+    Native.MJS.m4x4fromList
