@@ -1,4 +1,31 @@
-module Math.Matrix4 exposing (..)
+module Math.Matrix4
+    exposing
+        ( Mat4
+        , identity
+        , makeFromList
+        , inverse
+        , inverseOrthonormal
+        , mul
+        , mulAffine
+        , transpose
+        , makeBasis
+        , transform
+        , makeFrustum
+        , makePerspective
+        , makeOrtho
+        , makeOrtho2D
+        , makeLookAt
+        , rotate
+        , scale
+        , scale3
+        , translate
+        , translate3
+        , makeRotate
+        , makeScale
+        , makeScale3
+        , makeTranslate
+        , makeTranslate3
+        )
 
 {-| A high performance linear algebra library using native JS arrays. Geared
 towards 3D graphics and use with `Graphics.WebGL`. All matrices are immutable.

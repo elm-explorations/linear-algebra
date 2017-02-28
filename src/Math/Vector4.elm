@@ -1,4 +1,31 @@
-module Math.Vector4 exposing (..)
+module Math.Vector4
+    exposing
+        ( Vec4
+        , vec4
+        , getX
+        , getY
+        , getZ
+        , getW
+        , setX
+        , setY
+        , setZ
+        , setW
+        , add
+        , sub
+        , negate
+        , scale
+        , dot
+        , normalize
+        , direction
+        , length
+        , lengthSquared
+        , distance
+        , distanceSquared
+        , toTuple
+        , fromTuple
+        , toRecord
+        , fromRecord
+        )
 
 {-| A high performance linear algebra library using native JS arrays. Geared
 towards 3D graphics and use with `Graphics.WebGL`. All vectors are immutable.
