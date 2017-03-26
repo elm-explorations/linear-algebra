@@ -87,6 +87,15 @@ suite =
                 , test "makeFromList should return Nothing for too long list of elements" <|
                     \_ ->
                         M4.makeFromList ([ 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1 ]) |> Expect.equal Nothing
+                , test "fromRecord should be able to create the identity matrix" <|
+                    \_ ->
+                        M4.fromRecord { m11 = 1, m21 = 0, m31 = 0, m41 = 0, m12 = 0, m22 = 1, m32 = 0, m42 = 0, m13 = 0, m23 = 0, m33 = 1, m43 = 0, m14 = 0, m24 = 0, m34 = 0, m44 = 1 } |> Expect.equal M4.identity
+                , test "toRecord should convert the identity matrix" <|
+                    \_ ->
+                        { m11 = 1, m21 = 0, m31 = 0, m41 = 0, m12 = 0, m22 = 1, m32 = 0, m42 = 0, m13 = 0, m23 = 0, m33 = 1, m43 = 0, m14 = 0, m24 = 0, m34 = 0, m44 = 1 } |> Expect.equal (M4.toRecord M4.identity)
+                , fuzz fuzz4x4 "fromRecord should be the opposite of toRecord" <|
+                    \record4x4 ->
+                        M4.toRecord (M4.fromRecord record4x4) |> Expect.equal record4x4
                 , test "matrix should not lose precision" <|
                     \_ ->
                         let
@@ -112,3 +121,43 @@ suite =
                 ]
             ]
         ]
+
+
+fuzz4x4 : Fuzz.Fuzzer { m11 : Float, m21 : Float, m31 : Float, m41 : Float, m12 : Float, m22 : Float, m32 : Float, m42 : Float, m13 : Float, m23 : Float, m33 : Float, m43 : Float, m14 : Float, m24 : Float, m34 : Float, m44 : Float }
+fuzz4x4 =
+    Fuzz.map
+        (\m11 m21 m31 m41 m12 m22 m32 m42 m13 m23 m33 m43 m14 m24 m34 m44 ->
+            { m11 = m11
+            , m21 = m21
+            , m31 = m31
+            , m41 = m41
+            , m12 = m12
+            , m22 = m22
+            , m32 = m32
+            , m42 = m42
+            , m13 = m13
+            , m23 = m23
+            , m33 = m33
+            , m43 = m43
+            , m14 = m14
+            , m24 = m24
+            , m34 = m34
+            , m44 = m44
+            }
+        )
+        Fuzz.float
+        |> Fuzz.andMap Fuzz.float
+        |> Fuzz.andMap Fuzz.float
+        |> Fuzz.andMap Fuzz.float
+        |> Fuzz.andMap Fuzz.float
+        |> Fuzz.andMap Fuzz.float
+        |> Fuzz.andMap Fuzz.float
+        |> Fuzz.andMap Fuzz.float
+        |> Fuzz.andMap Fuzz.float
+        |> Fuzz.andMap Fuzz.float
+        |> Fuzz.andMap Fuzz.float
+        |> Fuzz.andMap Fuzz.float
+        |> Fuzz.andMap Fuzz.float
+        |> Fuzz.andMap Fuzz.float
+        |> Fuzz.andMap Fuzz.float
+        |> Fuzz.andMap Fuzz.float

@@ -2,6 +2,8 @@ module Math.Matrix4
     exposing
         ( Mat4
         , identity
+        , fromRecord
+        , toRecord
         , makeFromList
         , inverse
         , inverseOrthonormal
@@ -53,6 +55,10 @@ existing matrix.
 # Create Transformations
 
 @docs makeRotate, makeScale, makeScale3, makeTranslate, makeTranslate3
+
+# Conversions
+
+@docs toRecord, fromRecord
 
 -}
 
@@ -286,3 +292,17 @@ the list is not exactly 16 (4x4).
 makeFromList : List Float -> Maybe Mat4
 makeFromList =
     Native.MJS.m4x4fromList
+
+
+{-| Convert a matrix to a record.
+-}
+toRecord : Mat4 -> { m11 : Float, m21 : Float, m31 : Float, m41 : Float, m12 : Float, m22 : Float, m32 : Float, m42 : Float, m13 : Float, m23 : Float, m33 : Float, m43 : Float, m14 : Float, m24 : Float, m34 : Float, m44 : Float }
+toRecord =
+    Native.MJS.m4x4toRecord
+
+
+{-| Convert a record to a matrix.
+-}
+fromRecord : { m11 : Float, m21 : Float, m31 : Float, m41 : Float, m12 : Float, m22 : Float, m32 : Float, m42 : Float, m13 : Float, m23 : Float, m33 : Float, m43 : Float, m14 : Float, m24 : Float, m34 : Float, m44 : Float } -> Mat4
+fromRecord =
+    Native.MJS.m4x4fromRecord
