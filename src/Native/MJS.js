@@ -582,6 +582,50 @@ var _elm_community$linear_algebra$Native_MJS = function() {
     }
 
     /*
+     * Function: M4x4.fromRecord
+     *
+     * Creates a new 4x4 matrix from the given record.
+     *
+     * Parameters:
+     *
+     * A record with m11..m44 attributes - the 16 elements of the new matrix
+     *
+     * Returns:
+     *
+     * A new matrix filled with the values from the given record.
+     */
+    M4x4.fromRecord = function(r) {
+        return new MJS_FLOAT_ARRAY_TYPE([
+            r.m11, r.m21, r.m31, r.m41,
+            r.m12, r.m22, r.m32, r.m42,
+            r.m13, r.m23, r.m33, r.m43,
+            r.m14, r.m24, r.m34, r.m44
+        ]);
+    }
+
+    /*
+     * Function: M4x4.toRecord
+     *
+     * Creates a record from the given matrix
+     *
+     * Parameters:
+     *
+     * A 4x4 matrix
+     *
+     * Returns:
+     *
+     * A new record with m11..m44 attributes - the 16 elements of the given matrix
+     */
+    M4x4.toRecord = function(m) {
+        return {
+            m11: m[0], m21: m[1], m31: m[2], m41: m[3],
+            m12: m[4], m22: m[5], m32: m[6], m42: m[7],
+            m13: m[8], m23: m[9], m33: m[10], m43: m[11],
+            m14: m[12], m24: m[13], m34: m[14], m44: m[15]
+        };
+    }
+
+    /*
      * Function: M4x4.topLeft3x3
      *
      * Return the top left 3x3 matrix from the given 4x4 matrix m.
@@ -1847,6 +1891,8 @@ var _elm_community$linear_algebra$Native_MJS = function() {
         v3cross: F2(V3.cross),
         v3mul4x4: F2(V3.mul4x4),
         m4x4fromList: M4x4.fromList,
+        m4x4fromRecord: M4x4.fromRecord,
+        m4x4toRecord: M4x4.toRecord,
         m4x4identity: M4x4.identity,
         m4x4topLeft3x3: M4x4.topLeft3x3,
         m4x4inverse: M4x4.inverse,
