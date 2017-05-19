@@ -5,6 +5,7 @@ import Fuzz
 import Expect
 import Math.Vector2 as V2
 import Math.Vector3 as V3
+import Math.Vector4 as V4
 import Math.Matrix4 as M4
 
 
@@ -27,6 +28,33 @@ suite =
                     Expect.equal
                         (V2.vec2 3 6)
                         (V2.vec2 3 4 |> V2.setY 6)
+            ]
+        , describe "Vector4 module"
+            [ test "vec4" <|
+                \() ->
+                    Expect.equal
+                        (V4.vec4 1 2 3 4)
+                        (V4.vec4 1 2 3 4)
+            , test "setX" <|
+                \() ->
+                    Expect.equal
+                        (V4.vec4 5 2 3 4)
+                        (V4.vec4 1 2 3 4 |> V4.setX 5)
+            , test "setY" <|
+                \() ->
+                    Expect.equal
+                        (V4.vec4 1 6 3 4)
+                        (V4.vec4 1 2 3 4 |> V4.setY 6)
+            , test "setZ" <|
+                \() ->
+                    Expect.equal
+                        (V4.vec4 1 2 7 4)
+                        (V4.vec4 1 2 3 4 |> V4.setZ 7)
+            , test "setW" <|
+                \() ->
+                    Expect.equal
+                        (V4.vec4 1 2 3 8)
+                        (V4.vec4 1 2 3 4 |> V4.setW 8)
             ]
         , describe "Matrix4 module"
             [ describe "inverse"

@@ -61,16 +61,16 @@ var _elm_community$linear_algebra$Native_Math_Vector4 = function() {
         return a[3];
     }
     V4.setX = function V4_setX(x, a) {
-        return new MJS_FLOAT_ARRAY_TYPE(x, a[1], a[2], a[3]);
+        return new MJS_FLOAT_ARRAY_TYPE([x, a[1], a[2], a[3]]);
     }
     V4.setY = function V4_setY(y, a) {
-        return new MJS_FLOAT_ARRAY_TYPE(a[0], y, a[2], a[3]);
+        return new MJS_FLOAT_ARRAY_TYPE([a[0], y, a[2], a[3]]);
     }
     V4.setZ = function V4_setZ(z, a) {
-        return new MJS_FLOAT_ARRAY_TYPE(a[0], a[1], z, a[3]);
+        return new MJS_FLOAT_ARRAY_TYPE([a[0], a[1], z, a[3]]);
     }
     V4.setW = function V4_setW(w, a) {
-        return new MJS_FLOAT_ARRAY_TYPE(a[0], a[1], a[2], w);
+        return new MJS_FLOAT_ARRAY_TYPE([a[0], a[1], a[2], w]);
     }
 
     V4.toTuple = function V4_toTuple(a) {
