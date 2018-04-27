@@ -1903,7 +1903,7 @@ var _elm_community$linear_algebra$Native_MJS = function() {
         m4x4makeOrtho: F6(M4x4.makeOrtho),
         m4x4makeOrtho2D: F4(M4x4.makeOrtho2D),
         m4x4mul: F2(M4x4.mul),
-        m4x4Affine: F2(M4x4.mulAffine),
+        m4x4mulAffine: F2(M4x4.mulAffine),
         m4x4makeRotate: F2(M4x4.makeRotate),
         m4x4rotate: F3(M4x4.rotate),
         m4x4makeScale3: F3(M4x4.makeScale3),
