@@ -1,49 +1,58 @@
 module Math.Vector4
     exposing
         ( Vec4
-        , vec4
+        , add
+        , direction
+        , distance
+        , distanceSquared
+        , dot
+        , fromRecord
+        , fromTuple
+        , getW
         , getX
         , getY
         , getZ
-        , getW
+        , length
+        , lengthSquared
+        , negate
+        , normalize
+        , scale
+        , setW
         , setX
         , setY
         , setZ
-        , setW
-        , add
         , sub
-        , negate
-        , scale
-        , dot
-        , normalize
-        , direction
-        , length
-        , lengthSquared
-        , distance
-        , distanceSquared
-        , toTuple
-        , fromTuple
         , toRecord
-        , fromRecord
+        , toTuple
+        , vec4
         )
 
 {-| A high performance linear algebra library using native JS arrays. Geared
 towards 3D graphics and use with `Graphics.WebGL`. All vectors are immutable.
 
+
 # Create
+
 @docs Vec4, vec4
 
+
 # Get and Set
+
 The set functions create a new copy of the vector, updating a single field.
 
 @docs getX, getY, getZ, getW, setX, setY, setZ, setW
 
+
 # Operations
-@docs add, sub, negate, scale, dot, normalize, direction,
-      length, lengthSquared, distance, distanceSquared
+
+@docs add, sub, negate, scale, dot, normalize, direction
+@docs length, lengthSquared, distance, distanceSquared
+
 
 # Conversions
+
 @docs toTuple, fromTuple, toRecord, fromRecord
+
 -}
 
 import Native.Math.Vector4

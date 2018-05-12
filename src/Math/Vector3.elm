@@ -1,51 +1,60 @@
 module Math.Vector3
     exposing
         ( Vec3
-        , vec3
-        , i
-        , j
-        , k
+        , add
+        , cross
+        , direction
+        , distance
+        , distanceSquared
+        , dot
+        , fromRecord
+        , fromTuple
         , getX
         , getY
         , getZ
+        , i
+        , j
+        , k
+        , length
+        , lengthSquared
+        , negate
+        , normalize
+        , scale
         , setX
         , setY
         , setZ
-        , add
         , sub
-        , negate
-        , scale
-        , dot
-        , cross
-        , normalize
-        , direction
-        , length
-        , lengthSquared
-        , distance
-        , distanceSquared
-        , toTuple
-        , fromTuple
         , toRecord
-        , fromRecord
+        , toTuple
+        , vec3
         )
 
 {-| A high performance linear algebra library using native JS arrays. Geared
 towards 3D graphics and use with `Graphics.WebGL`. All vectors are immutable.
 
+
 # Create
+
 @docs Vec3, vec3, i, j, k
 
+
 # Get and Set
+
 The set functions create a new copy of the vector, updating a single field.
 
 @docs getX, getY, getZ, setX, setY, setZ
 
+
 # Operations
-@docs add, sub, negate, scale, dot, cross, normalize, direction,
-      length, lengthSquared, distance, distanceSquared
+
+@docs add, sub, negate, scale, dot, cross, normalize, direction
+@docs length, lengthSquared, distance, distanceSquared
+
 
 # Conversions
+
 @docs toTuple, fromTuple, toRecord, fromRecord
+
 -}
 
 import Native.MJS

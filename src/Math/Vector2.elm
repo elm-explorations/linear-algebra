@@ -1,45 +1,54 @@
 module Math.Vector2
     exposing
         ( Vec2
-        , vec2
-        , getX
-        , getY
-        , setX
-        , setY
         , add
-        , sub
-        , negate
-        , scale
-        , dot
-        , normalize
         , direction
-        , length
-        , lengthSquared
         , distance
         , distanceSquared
-        , toTuple
-        , fromTuple
-        , toRecord
+        , dot
         , fromRecord
+        , fromTuple
+        , getX
+        , getY
+        , length
+        , lengthSquared
+        , negate
+        , normalize
+        , scale
+        , setX
+        , setY
+        , sub
+        , toRecord
+        , toTuple
+        , vec2
         )
 
 {-| A high performance linear algebra library using native JS arrays. Geared
 towards 3D graphics and use with `Graphics.WebGL`. All vectors are immutable.
 
+
 # Create
+
 @docs Vec2, vec2
 
+
 # Get and Set
+
 The set functions create a new copy of the vector, updating a single field.
 
 @docs getX, getY, setX, setY
 
+
 # Operations
-@docs add, sub, negate, scale, dot, normalize, direction,
-      length, lengthSquared, distance, distanceSquared
+
+@docs add, sub, negate, scale, dot, normalize, direction
+@docs length, lengthSquared, distance, distanceSquared
+
 
 # Conversions
+
 @docs toTuple, fromTuple, toRecord, fromRecord
+
 -}
 
 import Native.Math.Vector2

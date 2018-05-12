@@ -1,32 +1,32 @@
 module Math.Matrix4
     exposing
         ( Mat4
-        , identity
         , fromRecord
-        , toRecord
-        , makeFromList
+        , identity
         , inverse
         , inverseOrthonormal
-        , mul
-        , mulAffine
-        , transpose
         , makeBasis
-        , transform
+        , makeFromList
         , makeFrustum
-        , makePerspective
+        , makeLookAt
         , makeOrtho
         , makeOrtho2D
-        , makeLookAt
-        , rotate
-        , scale
-        , scale3
-        , translate
-        , translate3
+        , makePerspective
         , makeRotate
         , makeScale
         , makeScale3
         , makeTranslate
         , makeTranslate3
+        , mul
+        , mulAffine
+        , rotate
+        , scale
+        , scale3
+        , toRecord
+        , transform
+        , translate
+        , translate3
+        , transpose
         )
 
 {-| A high performance linear algebra library using native JS arrays. Geared
@@ -36,25 +36,31 @@ This library uses the convention that the prefix `make` is creating a new
 array,as without the prefix, you are applying some transform to an
 existing matrix.
 
+
 # Create
 
 @docs Mat4, identity, makeFromList
+
 
 # Operations
 
 @docs inverse, inverseOrthonormal, mul, mulAffine, transpose, makeBasis, transform
 
+
 # Projections
 
 @docs makeFrustum, makePerspective, makeOrtho, makeOrtho2D, makeLookAt
+
 
 # Apply Transformations
 
 @docs rotate, scale, scale3, translate, translate3
 
+
 # Create Transformations
 
 @docs makeRotate, makeScale, makeScale3, makeTranslate, makeTranslate3
+
 
 # Conversions
 
@@ -62,8 +68,8 @@ existing matrix.
 
 -}
 
-import Native.MJS
 import Math.Vector3 exposing (Vec3)
+import Native.MJS
 
 
 {-| 4x4 matrix type
@@ -107,12 +113,13 @@ inverseOrthonormal =
 
 Parameters:
 
- * left - the left coordinate of the frustum
- * right- the right coordinate of the frustum
- * bottom - the bottom coordinate of the frustum
- * top - the top coordinate of the frustum
- * znear - the near z distance of the frustum
- * zfar - the far z distance of the frustum
+  - left - the left coordinate of the frustum
+  - right- the right coordinate of the frustum
+  - bottom - the bottom coordinate of the frustum
+  - top - the top coordinate of the frustum
+  - znear - the near z distance of the frustum
+  - zfar - the far z distance of the frustum
+
 -}
 makeFrustum : Float -> Float -> Float -> Float -> Float -> Float -> Mat4
 makeFrustum =
@@ -123,27 +130,28 @@ makeFrustum =
 
 Parameters:
 
- * fovy - field of view in the y axis, in degrees
- * aspect - aspect ratio
- * znear - the near z distance of the projection
- * zfar - the far z distance of the projection
+  - fovy - field of view in the y axis, in degrees
+  - aspect - aspect ratio
+  - znear - the near z distance of the projection
+  - zfar - the far z distance of the projection
+
 -}
 makePerspective : Float -> Float -> Float -> Float -> Mat4
 makePerspective =
     Native.MJS.m4x4makePerspective
 
 
-{-|
-Creates a matrix for an orthogonal frustum projection with the given parameters.
+{-| Creates a matrix for an orthogonal frustum projection with the given parameters.
 
 Parameters:
 
- * left - the left coordinate of the frustum
- * right- the right coordinate of the frustum
- * bottom - the bottom coordinate of the frustum
- * top - the top coordinate of the frustum
- * znear - the near z distance of the frustum
- * zfar - the far z distance of the frustum
+  - left - the left coordinate of the frustum
+  - right- the right coordinate of the frustum
+  - bottom - the bottom coordinate of the frustum
+  - top - the top coordinate of the frustum
+  - znear - the near z distance of the frustum
+  - zfar - the far z distance of the frustum
+
 -}
 makeOrtho : Float -> Float -> Float -> Float -> Float -> Float -> Mat4
 makeOrtho =
@@ -155,10 +163,11 @@ parameters. `znear` and `zfar` are assumed to be -1 and 1, respectively.
 
 Parameters:
 
- * left - the left coordinate of the frustum
- * right- the right coordinate of the frustum
- * bottom - the bottom coordinate of the frustum
- * top - the top coordinate of the frustum
+  - left - the left coordinate of the frustum
+  - right- the right coordinate of the frustum
+  - bottom - the bottom coordinate of the frustum
+  - top - the top coordinate of the frustum
+
 -}
 makeOrtho2D : Float -> Float -> Float -> Float -> Mat4
 makeOrtho2D =
@@ -224,8 +233,7 @@ scale =
     Native.MJS.m4x4scale
 
 
-{-|
-Creates a transformation matrix for translating by 3 scalar values, one for
+{-| Creates a transformation matrix for translating by 3 scalar values, one for
 each of the x, y, and z directions.
 -}
 makeTranslate3 : Float -> Float -> Float -> Mat4
@@ -241,30 +249,28 @@ makeTranslate =
     Native.MJS.m4x4makeTranslate
 
 
-{-|
-Concatenates a translation to the given matrix.
+{-| Concatenates a translation to the given matrix.
 -}
 translate3 : Float -> Float -> Float -> Mat4 -> Mat4
 translate3 =
     Native.MJS.m4x4translate3
 
 
-{-|
-Concatenates a translation to the given matrix.
+{-| Concatenates a translation to the given matrix.
 -}
 translate : Vec3 -> Mat4 -> Mat4
 translate =
     Native.MJS.m4x4translate
 
 
-{-|
-Creates a transformation matrix for a camera.
+{-| Creates a transformation matrix for a camera.
 
 Parameters:
 
- * eye - The location of the camera
- * center - The location of the focused object
- * up - The "up" direction according to the camera
+  - eye - The location of the camera
+  - center - The location of the focused object
+  - up - The "up" direction according to the camera
+
 -}
 makeLookAt : Vec3 -> Vec3 -> Vec3 -> Mat4
 makeLookAt =
