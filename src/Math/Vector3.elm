@@ -8,7 +8,6 @@ module Math.Vector3
         , distanceSquared
         , dot
         , fromRecord
-        , fromTuple
         , getX
         , getY
         , getZ
@@ -25,7 +24,6 @@ module Math.Vector3
         , setZ
         , sub
         , toRecord
-        , toTuple
         , vec3
         )
 
@@ -53,7 +51,7 @@ The set functions create a new copy of the vector, updating a single field.
 
 # Conversions
 
-@docs toTuple, fromTuple, toRecord, fromRecord
+@docs toRecord, fromRecord
 
 -}
 
@@ -136,25 +134,11 @@ setZ =
     Elm.Kernel.MJS.v3setZ
 
 
-{-| Convert a vector to a tuple.
--}
-toTuple : Vec3 -> ( Float, Float, Float )
-toTuple =
-    Elm.Kernel.MJS.v3toTuple
-
-
 {-| Convert a vector to a record.
 -}
 toRecord : Vec3 -> { x : Float, y : Float, z : Float }
 toRecord =
     Elm.Kernel.MJS.v3toRecord
-
-
-{-| Convert a tuple to a vector.
--}
-fromTuple : ( Float, Float, Float ) -> Vec3
-fromTuple =
-    Elm.Kernel.MJS.v3fromTuple
 
 
 {-| Convert a record to a vector.

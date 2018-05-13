@@ -1,6 +1,5 @@
 /*
 
-import Elm.Kernel.Utils exposing (Tuple2, Tuple3)
 import Maybe exposing (Just, Nothing)
 
 */
@@ -54,14 +53,6 @@ var _MJS_v2setX = F2(function(x, a) {
 var _MJS_v2setY = F2(function(y, a) {
     return new Float64Array([a[0], y]);
 });
-
-var _MJS_v2toTuple = function(a) {
-    return __Utils_Tuple2(a[0], a[1]);
-};
-
-var _MJS_v2fromTuple = function(t) {
-    return new Float64Array([t.a, t.b]);
-};
 
 var _MJS_v2toRecord = function(a) {
     return { x: a[0], y: a[1] };
@@ -174,14 +165,6 @@ var _MJS_v3setY = F2(function(y, a) {
 var _MJS_v3setZ = F2(function(z, a) {
     return new Float64Array([a[0], a[1], z]);
 });
-
-var _MJS_v3toTuple = function(a) {
-    return __Utils_Tuple3(a[0], a[1], a[2]);
-};
-
-var _MJS_v3fromTuple = function(t) {
-    return new Float64Array([t.a, t.b, t.c]);
-};
 
 var _MJS_v3toRecord = function(a) {
     return { x: a[0], y: a[1], z: a[2] };

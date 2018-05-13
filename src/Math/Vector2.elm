@@ -7,7 +7,6 @@ module Math.Vector2
         , distanceSquared
         , dot
         , fromRecord
-        , fromTuple
         , getX
         , getY
         , length
@@ -19,7 +18,6 @@ module Math.Vector2
         , setY
         , sub
         , toRecord
-        , toTuple
         , vec2
         )
 
@@ -47,7 +45,7 @@ The set functions create a new copy of the vector, updating a single field.
 
 # Conversions
 
-@docs toTuple, fromTuple, toRecord, fromRecord
+@docs toRecord, fromRecord
 
 -}
 
@@ -95,25 +93,11 @@ setY =
     Elm.Kernel.MJS.v2setY
 
 
-{-| Convert a vector to a tuple.
--}
-toTuple : Vec2 -> ( Float, Float )
-toTuple =
-    Elm.Kernel.MJS.v2toTuple
-
-
 {-| Convert a vector to a record.
 -}
 toRecord : Vec2 -> { x : Float, y : Float }
 toRecord =
     Elm.Kernel.MJS.v2toRecord
-
-
-{-| Convert a tuple to a vector.
--}
-fromTuple : ( Float, Float ) -> Vec2
-fromTuple =
-    Elm.Kernel.MJS.v2fromTuple
 
 
 {-| Convert a record to a vector.
