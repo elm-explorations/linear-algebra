@@ -55,11 +55,11 @@ var _MJS_v2setY = F2(function(y, a) {
 });
 
 var _MJS_v2toRecord = function(a) {
-    return { x: a[0], y: a[1] };
+    return { __$x: a[0], __$y: a[1] };
 };
 
 var _MJS_v2fromRecord = function(r) {
-    return new Float64Array([r.x, r.y]);
+    return new Float64Array([r.__$x, r.__$y]);
 };
 
 var _MJS_v2add = F2(function(a, b) {
@@ -167,11 +167,11 @@ var _MJS_v3setZ = F2(function(z, a) {
 });
 
 var _MJS_v3toRecord = function(a) {
-    return { x: a[0], y: a[1], z: a[2] };
+    return { __$x: a[0], __$y: a[1], __$z: a[2] };
 };
 
 var _MJS_v3fromRecord3 = function(r) {
-    return new Float64Array([r.x, r.y, r.z]);
+    return new Float64Array([r.__$x, r.__$y, r.__$z]);
 };
 
 var _MJS_v3add = F2(function(a, b) {
@@ -320,11 +320,11 @@ var _MJS_v4setW = F2(function(w, a) {
 });
 
 var _MJS_v4toRecord = function(a) {
-    return { x: a[0], y: a[1], z: a[2], w: a[3] };
+    return { __$x: a[0], __$y: a[1], __$z: a[2], __$w: a[3] };
 };
 
 var _MJS_v4fromRecord = function(r) {
-    return new Float64Array([r.x, r.y, r.z, r.w]);
+    return new Float64Array([r.__$x, r.__$y, r.__$z, r.__$w]);
 };
 
 var _MJS_v4add = F2(function(a, b) {
@@ -429,31 +429,31 @@ var _MJS_m4x4identity = new Float64Array([
 
 var _MJS_m4x4fromRecord = function(r) {
     var m = new Float64Array(16);
-    m[0] = r.m11;
-    m[1] = r.m21;
-    m[2] = r.m31;
-    m[3] = r.m41;
-    m[4] = r.m12;
-    m[5] = r.m22;
-    m[6] = r.m32;
-    m[7] = r.m42;
-    m[8] = r.m13;
-    m[9] = r.m23;
-    m[10] = r.m33;
-    m[11] = r.m43;
-    m[12] = r.m14;
-    m[13] = r.m24;
-    m[14] = r.m34;
-    m[15] = r.m44;
+    m[0] = r.__$m11;
+    m[1] = r.__$m21;
+    m[2] = r.__$m31;
+    m[3] = r.__$m41;
+    m[4] = r.__$m12;
+    m[5] = r.__$m22;
+    m[6] = r.__$m32;
+    m[7] = r.__$m42;
+    m[8] = r.__$m13;
+    m[9] = r.__$m23;
+    m[10] = r.__$m33;
+    m[11] = r.__$m43;
+    m[12] = r.__$m14;
+    m[13] = r.__$m24;
+    m[14] = r.__$m34;
+    m[15] = r.__$m44;
     return m;
 }
 
 var _MJS_m4x4toRecord = function(m) {
     return {
-        m11: m[0], m21: m[1], m31: m[2], m41: m[3],
-        m12: m[4], m22: m[5], m32: m[6], m42: m[7],
-        m13: m[8], m23: m[9], m33: m[10], m43: m[11],
-        m14: m[12], m24: m[13], m34: m[14], m44: m[15]
+        __$m11: m[0], __$m21: m[1], __$m31: m[2], __$m41: m[3],
+        __$m12: m[4], __$m22: m[5], __$m32: m[6], __$m42: m[7],
+        __$m13: m[8], __$m23: m[9], __$m33: m[10], __$m43: m[11],
+        __$m14: m[12], __$m24: m[13], __$m34: m[14], __$m44: m[15]
     };
 }
 
