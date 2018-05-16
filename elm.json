@@ -1,9 +1,9 @@
 {
     "type": "package",
-    "name": "elm-community/linear-algebra",
+    "name": "elm-explorations/linear-algebra",
     "summary": "A linear algebra library for fast vector and matrix math",
     "license": "BSD-3-Clause",
-    "version": "3.1.2",
+    "version": "1.0.0",
     "exposed-modules": [
         "Math.Vector2",
         "Math.Vector3",

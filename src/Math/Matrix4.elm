@@ -38,7 +38,7 @@ existing matrix.
 
 # Create
 
-@docs Mat4, identity, makeFromList
+@docs Mat4, identity
 
 
 # Operations

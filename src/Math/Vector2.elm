@@ -49,7 +49,7 @@ The set functions create a new copy of the vector, updating a single field.
 
 -}
 
-import Elm.Kernel.Math.Vector2
+import Elm.Kernel.MJS
 
 
 {-| Two dimensional vector type
