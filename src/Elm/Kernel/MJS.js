@@ -87,18 +87,19 @@ var _MJS_v2direction = F2(function(a, b) {
     var r = new Float64Array(2);
     r[0] = a[0] - b[0];
     r[1] = a[1] - b[1];
-    var im = 1.0 / _MJS_v2length(r);
+    var im = 1.0 / _MJS_v2lengthLocal(r);
     r[0] = r[0] * im;
     r[1] = r[1] * im;
     return r;
 });
 
-var _MJS_v2length = function(a) {
-    return Math.sqrt(a[0]*a[0] + a[1]*a[1]);
-};
+function _MJS_v2lengthLocal(a) {
+    return Math.sqrt(a[0] * a[0] + a[1] * a[1]);
+}
+var _MJS_v2length = _MJS_v2lengthLocal;
 
 var _MJS_v2lengthSquared = function(a) {
-    return a[0]*a[0] + a[1]*a[1];
+    return a[0] * a[0] + a[1] * a[1];
 };
 
 var _MJS_v2distance = F2(function(a, b) {
@@ -115,7 +116,7 @@ var _MJS_v2distanceSquared = F2(function(a, b) {
 
 var _MJS_v2normalize = function(a) {
     var r = new Float64Array(2);
-    var im = 1.0 / _MJS_v2length(a);
+    var im = 1.0 / _MJS_v2lengthLocal(a);
     r[0] = a[0] * im;
     r[1] = a[1] * im;
     return r;
@@ -181,7 +182,7 @@ var _MJS_v3add = F2(function(a, b) {
     r[2] = a[2] + b[2];
 });
 
-var _MJS_v3sub = F2(function _MJS_v3subLocal(a, b, r) {
+function _MJS_v3subLocal(a, b, r) {
     if (r === undefined) {
         r = new Float64Array(3);
     }
@@ -189,7 +190,8 @@ var _MJS_v3sub = F2(function _MJS_v3subLocal(a, b, r) {
     r[1] = a[1] - b[1];
     r[2] = a[2] - b[2];
     return r;
-});
+}
+var _MJS_v3sub = F2(_MJS_v3subLocal);
 
 var _MJS_v3negate = function(a) {
     var r = new Float64Array(3);
@@ -199,19 +201,21 @@ var _MJS_v3negate = function(a) {
     return r;
 };
 
-var _MJS_v3direction = F2(function _MJS_v3directionLocal(a, b, r) {
+function _MJS_v3directionLocal(a, b, r) {
     if (r === undefined) {
         r = new Float64Array(3);
     }
     return _MJS_v3normalizeLocal(_MJS_v3subLocal(a, b, r), r);
-});
+}
+var _MJS_v3direction = F2(_MJS_v3directionLocal);
 
-var _MJS_v3length = function(a) {
-    return Math.sqrt(a[0]*a[0] + a[1]*a[1] + a[2]*a[2]);
-};
+function _MJS_v3lengthLocal(a) {
+    return Math.sqrt(a[0] * a[0] + a[1] * a[1] + a[2] * a[2]);
+}
+var _MJS_v3length = _MJS_v3lengthLocal;
 
 var _MJS_v3lengthSquared = function(a) {
-    return a[0]*a[0] + a[1]*a[1] + a[2]*a[2];
+    return a[0] * a[0] + a[1] * a[1] + a[2] * a[2];
 };
 
 var _MJS_v3distance = function(a, b) {
@@ -228,34 +232,37 @@ var _MJS_v3distanceSquared = function(a, b) {
     return dx * dx + dy * dy + dz * dz;
 };
 
-var _MJS_v3normalize = function _MJS_v3normalizeLocal(a, r) {
+function _MJS_v3normalizeLocal(a, r) {
     if (r === undefined) {
         r = new Float64Array(3);
     }
-    var im = 1.0 / _MJS_v3length(a);
+    var im = 1.0 / _MJS_v3lengthLocal(a);
     r[0] = a[0] * im;
     r[1] = a[1] * im;
     r[2] = a[2] * im;
     return r;
-};
+}
+var _MJS_v3normalize = _MJS_v3normalizeLocal;
 
 var _MJS_v3scale = F2(function(k, a) {
     return new Float64Array([a[0] * k, a[1] * k, a[2] * k]);
 });
 
-var _MJS_v3dot = F2(function (a, b) {
+var _MJS_v3dotLocal = function(a, b) {
     return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
-});
+};
+var _MJS_v3dot = F2(_MJS_v3dotLocal);
 
-var _MJS_v3cross = F2(function _MJS_v3crossLocal(a, b, r) {
+function _MJS_v3crossLocal(a, b, r) {
     if (r === undefined) {
         r = new Float64Array(3);
     }
-    r[0] = a[1]*b[2] - a[2]*b[1];
-    r[1] = a[2]*b[0] - a[0]*b[2];
-    r[2] = a[0]*b[1] - a[1]*b[0];
+    r[0] = a[1] * b[2] - a[2] * b[1];
+    r[1] = a[2] * b[0] - a[0] * b[2];
+    r[2] = a[0] * b[1] - a[1] * b[0];
     return r;
-});
+}
+var _MJS_v3cross = F2(_MJS_v3crossLocal);
 
 var _MJS_v3mul4x4 = F2(function(m, v) {
     var w;
@@ -265,19 +272,19 @@ var _MJS_v3mul4x4 = F2(function(m, v) {
     tmp[0] = m[3];
     tmp[1] = m[7];
     tmp[2] = m[11];
-    w = _MJS_v3dot(vLocal, tmp) + m[15];
+    w = _MJS_v3dotLocal(v, tmp) + m[15];
     tmp[0] = m[0];
     tmp[1] = m[4];
     tmp[2] = m[8];
-    r[0] = (_MJS_v3dot(vLocal, tmp) + m[12])/w;
+    r[0] = (_MJS_v3dotLocal(v, tmp) + m[12]) / w;
     tmp[0] = m[1];
     tmp[1] = m[5];
     tmp[2] = m[9];
-    r[1] = (_MJS_v3dot(vLocal, tmp) + m[13])/w;
+    r[1] = (_MJS_v3dotLocal(v, tmp) + m[13]) / w;
     tmp[0] = m[2];
     tmp[1] = m[6];
     tmp[2] = m[10];
-    r[2] = (_MJS_v3dot(vLocal, tmp) + m[14])/w;
+    r[2] = (_MJS_v3dotLocal(v, tmp) + m[14]) / w;
     return r;
 });
 
@@ -360,7 +367,7 @@ var _MJS_v4direction = F2(function(a, b) {
     r[1] = a[1] - b[1];
     r[2] = a[2] - b[2];
     r[3] = a[3] - b[3];
-    var im = 1.0 / _MJS_v4length(r);
+    var im = 1.0 / _MJS_v4lengthLocal(r);
     r[0] = r[0] * im;
     r[1] = r[1] * im;
     r[2] = r[2] * im;
@@ -368,12 +375,13 @@ var _MJS_v4direction = F2(function(a, b) {
     return r;
 });
 
-var _MJS_v4length = function(a) {
-    return Math.sqrt(a[0]*a[0] + a[1]*a[1] + a[2]*a[2] + a[3]*a[3]);
-};
+function _MJS_v4lengthLocal(a) {
+    return Math.sqrt(a[0] * a[0] + a[1] * a[1] + a[2] * a[2] + a[3] * a[3]);
+}
+var _MJS_v4length = _MJS_v4lengthLocal;
 
 var _MJS_v4lengthSquared = function(a) {
-    return a[0]*a[0] + a[1]*a[1] + a[2]*a[2] + a[3]*a[3];
+    return a[0] * a[0] + a[1] * a[1] + a[2] * a[2] + a[3] * a[3];
 };
 
 var _MJS_v4distance = F2(function(a, b) {
@@ -394,7 +402,7 @@ var _MJS_v4distanceSquared = F2(function(a, b) {
 
 var _MJS_v4normalize = function(a) {
     var r = new Float64Array(4);
-    var im = 1.0 / _MJS_v4length(a);
+    var im = 1.0 / _MJS_v4lengthLocal(a);
     r[0] = a[0] * im;
     r[1] = a[1] * im;
     r[2] = a[2] * im;
@@ -446,7 +454,7 @@ var _MJS_m4x4fromRecord = function(r) {
     m[14] = r.__$m34;
     m[15] = r.__$m44;
     return m;
-}
+};
 
 var _MJS_m4x4toRecord = function(m) {
     return {
@@ -455,7 +463,7 @@ var _MJS_m4x4toRecord = function(m) {
         __$m13: m[8], __$m23: m[9], __$m33: m[10], __$m43: m[11],
         __$m14: m[12], __$m24: m[13], __$m34: m[14], __$m44: m[15]
     };
-}
+};
 
 var _MJS_m4x4inverse = function(m) {
     var r = new Float64Array(16);
@@ -513,42 +521,37 @@ var _MJS_m4x4inverseOrthonormal = function(m) {
     _MJS_m4x4transposeLocal(m, r);
     var t = [m[12], m[13], m[14]];
     r[3] = r[7] = r[11] = 0;
-    r[12] = -_MJS_v3dot([Localr[0], r[4], r[8]], t);
-    r[13] = -_MJS_v3dot([Localr[1], r[5], r[9]], t);
-    r[14] = -_MJS_v3dot([Localr[2], r[6], r[10]], t);
+    r[12] = -_MJS_v3dotLocal([r[0], r[4], r[8]], t);
+    r[13] = -_MJS_v3dotLocal([r[1], r[5], r[9]], t);
+    r[14] = -_MJS_v3dotLocal([r[2], r[6], r[10]], t);
     return r;
 };
 
-var _MJS_m4x4makeFrustum = F6(function _MJS_m4x4makeFrustumLocal(left, right, bottom, top, znear, zfar) {
+function _MJS_m4x4makeFrustumLocal(left, right, bottom, top, znear, zfar) {
     var r = new Float64Array(16);
-    var X = 2*znear/(right-left);
-    var Y = 2*znear/(top-bottom);
-    var A = (right+left)/(right-left);
-    var B = (top+bottom)/(top-bottom);
-    var C = -(zfar+znear)/(zfar-znear);
-    var D = -2*zfar*znear/(zfar-znear);
 
-    r[0] = 2*znear/(right-left);
+    r[0] = 2 * znear / (right - left);
     r[1] = 0;
     r[2] = 0;
     r[3] = 0;
     r[4] = 0;
-    r[5] = 2*znear/(top-bottom);
+    r[5] = 2 * znear / (top - bottom);
     r[6] = 0;
     r[7] = 0;
-    r[8] = (right+left)/(right-left);
-    r[9] = (top+bottom)/(top-bottom);
-    r[10] = -(zfar+znear)/(zfar-znear);
+    r[8] = (right + left) / (right - left);
+    r[9] = (top + bottom) / (top - bottom);
+    r[10] = -(zfar + znear) / (zfar - znear);
     r[11] = -1;
     r[12] = 0;
     r[13] = 0;
-    r[14] = -2*zfar*znear/(zfar-znear);
+    r[14] = -2 * zfar * znear / (zfar - znear);
     r[15] = 0;
 
     return r;
-});
+}
+var _MJS_m4x4makeFrustum = F6(_MJS_m4x4makeFrustumLocal);
 
-M4x4.makePerspective = F4(function(fovy, aspect, znear, zfar) {
+var _MJS_m4x4makePerspective = F4(function(fovy, aspect, znear, zfar) {
     var ymax = znear * Math.tan(fovy * Math.PI / 360.0);
     var ymin = -ymax;
     var xmin = ymin * aspect;
@@ -557,40 +560,35 @@ M4x4.makePerspective = F4(function(fovy, aspect, znear, zfar) {
     return _MJS_m4x4makeFrustumLocal(xmin, xmax, ymin, ymax, znear, zfar);
 });
 
-var _MJS_m4x4makeOrtho = F6(function _MJS_m4x4makeOrthoLocal(left, right, bottom, top, znear, zfar) {
+function _MJS_m4x4makeOrthoLocal(left, right, bottom, top, znear, zfar) {
     var r = new Float64Array(16);
-    var tX = -(right+left)/(right-left);
-    var tY = -(top+bottom)/(top-bottom);
-    var tZ = -(zfar+znear)/(zfar-znear);
-    var X = 2 / (right-left);
-    var Y = 2 / (top-bottom);
-    var Z = -2 / (zfar-znear);
 
-    r[0] = 2 / (right-left);
+    r[0] = 2 / (right - left);
     r[1] = 0;
     r[2] = 0;
     r[3] = 0;
     r[4] = 0;
-    r[5] = 2 / (top-bottom);
+    r[5] = 2 / (top - bottom);
     r[6] = 0;
     r[7] = 0;
     r[8] = 0;
     r[9] = 0;
-    r[10] = -2 / (zfar-znear);
+    r[10] = -2 / (zfar - znear);
     r[11] = 0;
-    r[12] = -(right+left)/(right-left);
-    r[13] = -(top+bottom)/(top-bottom);
-    r[14] = -(zfar+znear)/(zfar-znear);
+    r[12] = -(right + left) / (right - left);
+    r[13] = -(top + bottom) / (top - bottom);
+    r[14] = -(zfar + znear) / (zfar - znear);
     r[15] = 1;
 
     return r;
-});
+}
+var _MJS_m4x4makeOrtho = F6(_MJS_m4x4makeOrthoLocal);
 
 var _MJS_m4x4makeOrtho2D = F4(function(left, right, bottom, top) {
     return _MJS_m4x4makeOrthoLocal(left, right, bottom, top, -1, 1);
 });
 
-var _MJS_m4x4mul = F2(function _MJS_m4x4mulLocal(a, b) {
+function _MJS_m4x4mulLocal(a, b) {
     var r = new Float64Array(16);
     var a11 = a[0];
     var a21 = a[1];
@@ -643,7 +641,8 @@ var _MJS_m4x4mul = F2(function _MJS_m4x4mulLocal(a, b) {
     r[15] = a41 * b14 + a42 * b24 + a43 * b34 + a44 * b44;
 
     return r;
-});
+}
+var _MJS_m4x4mul = F2(_MJS_m4x4mulLocal);
 
 var _MJS_m4x4mulAffine = F2(function(a, b) {
     var r = new Float64Array(16);
@@ -700,20 +699,20 @@ var _MJS_m4x4makeRotate = F2(function(angle, axis) {
     var y = axis[1];
     var z = axis[2];
     var c = Math.cos(angle);
-    var c1 = 1-c;
+    var c1 = 1 - c;
     var s = Math.sin(angle);
 
-    r[0] = x*x*c1+c;
-    r[1] = y*x*c1+z*s;
-    r[2] = z*x*c1-y*s;
+    r[0] = x * x * c1 + c;
+    r[1] = y * x * c1 + z * s;
+    r[2] = z * x * c1 - y * s;
     r[3] = 0;
-    r[4] = x*y*c1-z*s;
-    r[5] = y*y*c1+c;
-    r[6] = y*z*c1+x*s;
+    r[4] = x * y * c1 - z * s;
+    r[5] = y * y * c1 + c;
+    r[6] = y * z * c1 + x * s;
     r[7] = 0;
-    r[8] = x*z*c1+y*s;
-    r[9] = y*z*c1-x*s;
-    r[10] = z*z*c1+c;
+    r[8] = x * z * c1 + y * s;
+    r[9] = y * z * c1 - x * s;
+    r[10] = z * z * c1 + c;
     r[11] = 0;
     r[12] = 0;
     r[13] = 0;
@@ -725,16 +724,16 @@ var _MJS_m4x4makeRotate = F2(function(angle, axis) {
 
 var _MJS_m4x4rotate = F3(function(angle, axis, m) {
     var r = new Float64Array(16);
-    var im = 1.0 / _MJS_v3length(axis);
+    var im = 1.0 / _MJS_v3lengthLocal(axis);
     var x = axis[0] * im;
     var y = axis[1] * im;
     var z = axis[2] * im;
     var c = Math.cos(angle);
-    var c1 = 1-c;
+    var c1 = 1 - c;
     var s = Math.sin(angle);
-    var xs = x*s;
-    var ys = y*s;
-    var zs = z*s;
+    var xs = x * s;
+    var ys = y * s;
+    var zs = z * s;
     var xyc1 = x * y * c1;
     var xzc1 = x * z * c1;
     var yzc1 = y * z * c1;
@@ -772,7 +771,7 @@ var _MJS_m4x4rotate = F3(function(angle, axis, m) {
     return r;
 });
 
-var _MJS_m4x4makeScale3 = F3(function _MJS_m4x4makeScale3Local(x, y, z) {
+function _MJS_m4x4makeScale3Local(x, y, z) {
     var r = new Float64Array(16);
 
     r[0] = x;
@@ -793,7 +792,8 @@ var _MJS_m4x4makeScale3 = F3(function _MJS_m4x4makeScale3Local(x, y, z) {
     r[15] = 1;
 
     return r;
-});
+}
+var _MJS_m4x4makeScale3 = F3(_MJS_m4x4makeScale3Local);
 
 var _MJS_m4x4makeScale = function(v) {
     return _MJS_m4x4makeScale3Local(v[0], v[1], v[2]);
@@ -848,7 +848,7 @@ var _MJS_m4x4scale = F2(function(v, m) {
     return r;
 });
 
-var _MJS_m4x4makeTranslate3 = F3(function _MJS_m4x4makeTranslate3Local(x, y, z) {
+function _MJS_m4x4makeTranslate3Local(x, y, z) {
     var r = new Float64Array(16);
 
     r[0] = 1;
@@ -869,7 +869,8 @@ var _MJS_m4x4makeTranslate3 = F3(function _MJS_m4x4makeTranslate3Local(x, y, z) 
     r[15] = 1;
 
     return r;
-});
+}
+var _MJS_m4x4makeTranslate3 = F3(_MJS_m4x4makeTranslate3Local);
 
 var _MJS_m4x4makeTranslate = function(v) {
     return _MJS_m4x4makeTranslate3Local(v[0], v[1], v[2]);
@@ -981,7 +982,7 @@ var _MJS_m4x4makeLookAt = F3(function(eye, center, up) {
 });
 
 
-var _MJS_m4x4transpose = function(m) {
+function _MJS_m4x4transposeLocal(m) {
     var r = new Float64Array(16);
 
     r[0] = m[0]; r[1] = m[4]; r[2] = m[8]; r[3] = m[12];
@@ -990,7 +991,8 @@ var _MJS_m4x4transpose = function(m) {
     r[12] = m[3]; r[13] = m[7]; r[14] = m[11]; r[15] = m[15];
 
     return r;
-};
+}
+var _MJS_m4x4transpose;
 
 var _MJS_m4x4makeBasis = F3(function(vx, vy, vz) {
     var r = new Float64Array(16);
