@@ -992,7 +992,7 @@ function _MJS_m4x4transposeLocal(m) {
 
     return r;
 }
-var _MJS_m4x4transpose;
+var _MJS_m4x4transpose = _MJS_m4x4transposeLocal;
 
 var _MJS_m4x4makeBasis = F3(function(vx, vy, vz) {
     var r = new Float64Array(16);
