@@ -1,0 +1,35 @@
+{
+  "env": {
+      "browser": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+      "no-unused-vars": ["error", { "varsIgnorePattern": "^_MJS_(?!.*Local$)" }],
+      "indent": [ "error", 4, { "SwitchCase": 1 } ],
+      "space-infix-ops": [ "error" ],
+      "linebreak-style": [ "error", "unix" ],
+      "comma-style": [ "error", "last" ],
+      "brace-style": [ "error", "1tbs", { "allowSingleLine": true } ],
+      "curly": "error",
+      "quotes": [ "error", "single" ],
+      "semi": [ "error", "always" ],
+      "space-before-function-paren": [ "error", "never" ],
+      "keyword-spacing": [ "error", { "before": true, "after": true } ],
+      "space-before-blocks": [ "error", "always" ],
+      "key-spacing": [ "error", { "beforeColon": false, "afterColon": true, "mode": "strict" } ],
+      "semi-spacing": [ "error", {"before": false, "after": true} ],
+      "comma-spacing": [ "error", { "before": false, "after": true } ],
+      "comma-dangle": ["error", "never"],
+      "eqeqeq": "error"
+  },
+  "globals" : {
+      "__Maybe_Just": false,
+      "__Maybe_Nothing": false,
+      "F2": false,
+      "F3": false,
+      "F4": false,
+      "F5": false,
+      "F6": false,
+      "Float64Array": false
+  }
+}

@@ -1,52 +1,59 @@
 module Math.Vector4
     exposing
         ( Vec4
-        , vec4
+        , add
+        , direction
+        , distance
+        , distanceSquared
+        , dot
+        , fromRecord
+        , getW
         , getX
         , getY
         , getZ
-        , getW
+        , length
+        , lengthSquared
+        , negate
+        , normalize
+        , scale
+        , setW
         , setX
         , setY
         , setZ
-        , setW
-        , add
         , sub
-        , negate
-        , scale
-        , dot
-        , normalize
-        , direction
-        , length
-        , lengthSquared
-        , distance
-        , distanceSquared
-        , toTuple
-        , fromTuple
         , toRecord
-        , fromRecord
+        , vec4
         )
 
 {-| A high performance linear algebra library using native JS arrays. Geared
 towards 3D graphics and use with `Graphics.WebGL`. All vectors are immutable.
 
+
 # Create
+
 @docs Vec4, vec4
 
+
 # Get and Set
+
 The set functions create a new copy of the vector, updating a single field.
 
 @docs getX, getY, getZ, getW, setX, setY, setZ, setW
 
+
 # Operations
-@docs add, sub, negate, scale, dot, normalize, direction,
-      length, lengthSquared, distance, distanceSquared
+
+@docs add, sub, negate, scale, dot, normalize, direction
+@docs length, lengthSquared, distance, distanceSquared
+
 
 # Conversions
-@docs toTuple, fromTuple, toRecord, fromRecord
+
+@docs toRecord, fromRecord
+
 -}
 
-import Native.Math.Vector4
+import Elm.Kernel.MJS
 
 
 {-| Four dimensional vector type
@@ -59,165 +66,151 @@ type Vec4
 -}
 vec4 : Float -> Float -> Float -> Float -> Vec4
 vec4 =
-    Native.Math.Vector4.vec4
+    Elm.Kernel.MJS.v4
 
 
 {-| Extract the x component of a vector.
 -}
 getX : Vec4 -> Float
 getX =
-    Native.Math.Vector4.getX
+    Elm.Kernel.MJS.v4getX
 
 
 {-| Extract the y component of a vector.
 -}
 getY : Vec4 -> Float
 getY =
-    Native.Math.Vector4.getY
+    Elm.Kernel.MJS.v4getY
 
 
 {-| Extract the z component of a vector.
 -}
 getZ : Vec4 -> Float
 getZ =
-    Native.Math.Vector4.getZ
+    Elm.Kernel.MJS.v4getZ
 
 
 {-| Extract the w component of a vector.
 -}
 getW : Vec4 -> Float
 getW =
-    Native.Math.Vector4.getW
+    Elm.Kernel.MJS.v4getW
 
 
 {-| Update the x component of a vector, returning a new vector.
 -}
 setX : Float -> Vec4 -> Vec4
 setX =
-    Native.Math.Vector4.setX
+    Elm.Kernel.MJS.v4setX
 
 
 {-| Update the y component of a vector, returning a new vector.
 -}
 setY : Float -> Vec4 -> Vec4
 setY =
-    Native.Math.Vector4.setY
+    Elm.Kernel.MJS.v4setY
 
 
 {-| Update the z component of a vector, returning a new vector.
 -}
 setZ : Float -> Vec4 -> Vec4
 setZ =
-    Native.Math.Vector4.setZ
+    Elm.Kernel.MJS.v4setZ
 
 
 {-| Update the w component of a vector, returning a new vector.
 -}
 setW : Float -> Vec4 -> Vec4
 setW =
-    Native.Math.Vector4.setW
-
-
-{-| Convert a vector to a tuple.
--}
-toTuple : Vec4 -> ( Float, Float, Float, Float )
-toTuple =
-    Native.Math.Vector4.toTuple
+    Elm.Kernel.MJS.v4setW
 
 
 {-| Convert a vector to a record.
 -}
 toRecord : Vec4 -> { x : Float, y : Float, z : Float, w : Float }
 toRecord =
-    Native.Math.Vector4.toRecord
-
-
-{-| Convert a tuple to a vector.
--}
-fromTuple : ( Float, Float, Float, Float ) -> Vec4
-fromTuple =
-    Native.Math.Vector4.fromTuple
+    Elm.Kernel.MJS.v4toRecord
 
 
 {-| Convert a record to a vector.
 -}
 fromRecord : { x : Float, y : Float, z : Float, w : Float } -> Vec4
 fromRecord =
-    Native.Math.Vector4.fromRecord
+    Elm.Kernel.MJS.v4fromRecord
 
 
 {-| Vector addition: a + b
 -}
 add : Vec4 -> Vec4 -> Vec4
 add =
-    Native.Math.Vector4.add
+    Elm.Kernel.MJS.v4add
 
 
 {-| Vector subtraction: a - b
 -}
 sub : Vec4 -> Vec4 -> Vec4
 sub =
-    Native.Math.Vector4.sub
+    Elm.Kernel.MJS.v4sub
 
 
 {-| Vector negation: -a
 -}
 negate : Vec4 -> Vec4
 negate =
-    Native.Math.Vector4.neg
+    Elm.Kernel.MJS.v4negate
 
 
 {-| The normalized direction from b to a: (a - b) / |a - b|
 -}
 direction : Vec4 -> Vec4 -> Vec4
 direction =
-    Native.Math.Vector4.direction
+    Elm.Kernel.MJS.v4direction
 
 
 {-| The length of the given vector: |a|
 -}
 length : Vec4 -> Float
 length =
-    Native.Math.Vector4.length
+    Elm.Kernel.MJS.v4length
 
 
 {-| The square of the length of the given vector: |a| * |a|
 -}
 lengthSquared : Vec4 -> Float
 lengthSquared =
-    Native.Math.Vector4.lengthSquared
+    Elm.Kernel.MJS.v4lengthSquared
 
 
 {-| The distance between two vectors.
 -}
 distance : Vec4 -> Vec4 -> Float
 distance =
-    Native.Math.Vector4.distance
+    Elm.Kernel.MJS.v4distance
 
 
 {-| The square of the distance between two vectors.
 -}
 distanceSquared : Vec4 -> Vec4 -> Float
 distanceSquared =
-    Native.Math.Vector4.distanceSquared
+    Elm.Kernel.MJS.v4distanceSquared
 
 
 {-| A unit vector with the same direction as the given vector: a / |a|
 -}
 normalize : Vec4 -> Vec4
 normalize =
-    Native.Math.Vector4.normalize
+    Elm.Kernel.MJS.v4normalize
 
 
 {-| Multiply the vector by a scalar: s * v
 -}
 scale : Float -> Vec4 -> Vec4
 scale =
-    Native.Math.Vector4.scale
+    Elm.Kernel.MJS.v4scale
 
 
 {-| The dot product of a and b
 -}
 dot : Vec4 -> Vec4 -> Float
 dot =
-    Native.Math.Vector4.dot
+    Elm.Kernel.MJS.v4dot
