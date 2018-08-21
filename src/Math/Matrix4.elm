@@ -291,7 +291,7 @@ makeBasis =
     Elm.Kernel.MJS.m4x4makeBasis
 
 
-{-| Convert a matrix to a record.
+{-| Convert a matrix to a record. Elements are given by their row and column indices, starting at 1, so `m23` means the element in the second row, third column.
 -}
 toRecord : Mat4 -> { m11 : Float, m21 : Float, m31 : Float, m41 : Float, m12 : Float, m22 : Float, m32 : Float, m42 : Float, m13 : Float, m23 : Float, m33 : Float, m43 : Float, m14 : Float, m24 : Float, m34 : Float, m44 : Float }
 toRecord =
