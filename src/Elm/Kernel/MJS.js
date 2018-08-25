@@ -219,19 +219,19 @@ var _MJS_v3lengthSquared = function(a) {
     return a[0] * a[0] + a[1] * a[1] + a[2] * a[2];
 };
 
-var _MJS_v3distance = function(a, b) {
+var _MJS_v3distance = F2(function(a, b) {
     var dx = a[0] - b[0];
     var dy = a[1] - b[1];
     var dz = a[2] - b[2];
     return Math.sqrt(dx * dx + dy * dy + dz * dz);
-};
+});
 
-var _MJS_v3distanceSquared = function(a, b) {
+var _MJS_v3distanceSquared = F2(function(a, b) {
     var dx = a[0] - b[0];
     var dy = a[1] - b[1];
     var dz = a[2] - b[2];
     return dx * dx + dy * dy + dz * dz;
-};
+});
 
 function _MJS_v3normalizeLocal(a, r) {
     if (r === undefined) {
