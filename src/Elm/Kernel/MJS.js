@@ -518,8 +518,7 @@ var _MJS_m4x4inverse = function(m) {
 };
 
 var _MJS_m4x4inverseOrthonormal = function(m) {
-    var r = new Float64Array(16);
-    _MJS_m4x4transposeLocal(m, r);
+    var r = _MJS_m4x4transposeLocal(m);
     var t = [m[12], m[13], m[14]];
     r[3] = r[7] = r[11] = 0;
     r[12] = -_MJS_v3dotLocal([r[0], r[4], r[8]], t);
