@@ -171,7 +171,7 @@ var _MJS_v3toRecord = function(a) {
     return { __$x: a[0], __$y: a[1], __$z: a[2] };
 };
 
-var _MJS_v3fromRecord3 = function(r) {
+var _MJS_v3fromRecord = function(r) {
     return new Float64Array([r.__$x, r.__$y, r.__$z]);
 };
 
